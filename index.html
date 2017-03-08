@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+
+  <!-- Bootstrap -->
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+<title>San Tiago's Top Spots Angular</title>
+<!-- Style Sheet -->
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<!-- Map Scripts -->
+
+  <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGlrqrO_evftmLh-qieGpY9gKCKCYPBV0&callback=initMap"></script>
+  <!-- Map Scripts End -->
+  <!-- <script src='/path/to/angular-google-maps[.min].js'></script> -->
+
+</head>
+<h1 align="center" >San Diego Top Spots</h1>
+<!-- Binding myApp Controller to body -->
+<body >
+<!-- Map Div  -->
+  <div class="container">
+     <div class="flex-container" id="hold-map">
+        <div id="map"></div>
+     </div>
+  </div>
+<!-- Information Div -->
+  <div ng-controller="SpotCtrl" class="container">
+  <table id="topTable" class="table table-hover table-fixedheader table=bordered table-striped">
+      <tdead>
+      <th>Places</th>
+      <th>Location</th>
+      <th>Google Links</th>
+           <tr ng-repeat="spot in spots">
+              <td class="col-md-3">{{spot.name}}</td>
+             <td class="col-md-7">{{spot.description}}</td>
+             <td class="col-md-2"><button class="btn btn-primary"><a  target="#map" ng-href="http://maps.google.com/maps?q={{spot.location[0]}},{{spot.location[1]}}">Gooogle Maps Link</button></td>
+        </tr>
+      </tdead>
+     </table>
+  </div>
+
+<!-- Binding JSON witd ng-model -->
+  <div ng-repeat="spot in spots">
+      {{spot.name}}
+
+  </div>
+<!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- Angular Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
